@@ -79,14 +79,75 @@ public class Broker {
 	static FileOutputStream fos;
 	static BufferedOutputStream bos;
 
-	int which_ecom()
+	//A function that does all the communication with broker
+	public static void work() throws IOException
 	{
+		String catalog = inEcom.readLine();
+		//sending catalog to client
+		outClient.println(catalog);
 
-		System.out.println("Hi");
-		return 0;
+		//sending encrypted purchase information to ECOM1
+		outEcom.println(inClient.readLine());
+
+		//forwarding str_pid_Toamnt to Client
+		outClient.println(inEcom.readLine());
+
+		//reading orderid+ total payable amount sent from Client
+		str_pid_Toamnt = bc_session.decrypt(inClient.readLine());
+		pid_Toamnt = str_pid_Toamnt.split("\\|");
+
+		int pID = Integer.parseInt(pid_Toamnt[0]);
+		pid = pid_Toamnt[0];
+		int total_amnt = Integer.parseInt(pid_Toamnt[1]);
+		amt = pid_Toamnt[1];
+
+		// perform money transaction from client bucket to ECom1 bucket
+		// perform money transaction from client bucket to ECom1 bucket\
+		if ( total_amnt > clientBucket) {
+			String error_msg = "Insufficient Funds!";
+			outClient.println(bc_session.encrypt(error_msg));
+			System.out.println("client has insufficient funds..so exiting!");
+			System.exit(0);
+		} else {
+			clientBucket -= total_amnt;
+			ecom1Bucket += total_amnt;
+			//sending client and ECOM1 notification about the money transaction
+			receiptc = "[Transaction Confirmation Receipt]"+"|"+Integer.toString(pID)+"|"+Integer.toString(total_amnt)+"|"+Integer.toString(clientBucket);
+			outClient.println(bc_session.encrypt(receiptc));
+			receipte = "[Transaction Confirmation Receipt]"+"|"+Integer.toString(pID)+"|"+Integer.toString(total_amnt)+"|"+Integer.toString(ecom1Bucket);
+			outEcom.println(be_session.encrypt(receipte));
+			//******************************************************************************	
+			//reading file that broker wrote on my io stream
+
+			// receive file
+			byte[] mybytearray  = new byte [100000];
+			InputStream is = conn_ecom.getInputStream();
+			// FileOutputStream fos = new FileOutputStream("broker_to_ecom");
+			//   BufferedOutputStream bos = new BufferedOutputStream(fos);
+			bytesRead = is.read(mybytearray,0,mybytearray.length);
+			System.out.println("Number of bytes sending to client : "+bytesRead);
+			//	      current = bytesRead;
+			/*
+	      do {
+	         bytesRead = is.read(mybytearray, current, (mybytearray.length-current));
+	         if(bytesRead >= 0) current += bytesRead;
+	      } while(bytesRead > -1);
+	      //System.out.println( mybytearray+"................'"+current+"..."+mybytearray.length);
+			 */ 	      
+			//    	      bos.write(mybytearray, 0 , mybytearray.length);
+			//    	      bos.flush();
+			//    	      System.out.println("File " + "ecom_to_broker"
+			//    	          + " downloaded (" + current + " bytes read)");
+
+
+			//writing product on client socket
+			os_c.write(mybytearray,0,mybytearray.length);
+			os_c.flush();
+			System.out.println("product sent to client");
+			//*****************************************************************************
+		}
+
 	}
-
-
 	public static void main(String[] args) throws IOException, InterruptedException, Exception
 	{
 		new Broker();
@@ -104,212 +165,21 @@ public class Broker {
 		case 1:
 			System.out.println("Broker connecting to ECOM1");
 			sessionWithEcom(EOM1_IP, ECOM1_PORT);
-			String temp = inEcom.readLine();
-			//sending catalog to client
-			outClient.println(temp);
-
-			//sending encrypted purchase information to ECOM1
-			outEcom.println(inClient.readLine());
-
-			//forwarding str_pid_Toamnt to Client
-			outClient.println(inEcom.readLine());
-
-			//reading orderid+ total payable amount sent from Client
-			str_pid_Toamnt = bc_session.decrypt(inClient.readLine());
-			pid_Toamnt = str_pid_Toamnt.split("\\|");
-
-			int pID = Integer.parseInt(pid_Toamnt[0]);
-			pid = pid_Toamnt[0];
-			int total_amnt = Integer.parseInt(pid_Toamnt[1]);
-			amt = pid_Toamnt[1];
-
-			// perform money transaction from client bucket to ECom1 bucket
-			// perform money transaction from client bucket to ECom1 bucket\
-			if ( total_amnt > clientBucket) {
-				String error_msg = "Insufficient Funds!";
-				outClient.println(bc_session.encrypt(error_msg));
-				System.out.println("client has insufficient funds..so exiting!");
-				System.exit(0);
-			} else {
-				clientBucket -= total_amnt;
-				ecom1Bucket += total_amnt;
-				//sending client and ECOM1 notification about the money transaction
-				receiptc = "[Transaction Confirmation Receipt]"+"|"+Integer.toString(pID)+"|"+Integer.toString(total_amnt)+"|"+Integer.toString(clientBucket);
-				outClient.println(bc_session.encrypt(receiptc));
-				receipte = "[Transaction Confirmation Receipt]"+"|"+Integer.toString(pID)+"|"+Integer.toString(total_amnt)+"|"+Integer.toString(ecom1Bucket);
-				outEcom.println(be_session.encrypt(receipte));
-				//******************************************************************************	
-				//reading file that broker wrote on my io stream
-
-				// receive file
-				byte[] mybytearray  = new byte [100000];
-				InputStream is = conn_ecom.getInputStream();
-				// FileOutputStream fos = new FileOutputStream("broker_to_ecom");
-				//   BufferedOutputStream bos = new BufferedOutputStream(fos);
-				bytesRead = is.read(mybytearray,0,mybytearray.length);
-				System.out.println("Number of bytes sending to client : "+bytesRead);
-				//	      current = bytesRead;
-				/*
-    	      do {
-    	         bytesRead = is.read(mybytearray, current, (mybytearray.length-current));
-    	         if(bytesRead >= 0) current += bytesRead;
-    	      } while(bytesRead > -1);
-    	      //System.out.println( mybytearray+"................'"+current+"..."+mybytearray.length);
-				 */ 	      
-				//    	      bos.write(mybytearray, 0 , mybytearray.length);
-				//    	      bos.flush();
-				//    	      System.out.println("File " + "ecom_to_broker"
-				//    	          + " downloaded (" + current + " bytes read)");
-
-
-				//writing product on client socket
-				os_c.write(mybytearray,0,mybytearray.length);
-				os_c.flush();
-				System.out.println("product sent to client");
-				//*****************************************************************************
-			}
+			work();
 			break;
 
 		case 2:
 			System.out.println("Broker connecting to ECOM2");
 			sessionWithEcom(EOM2_IP, ECOM2_PORT);
-			outClient.println(inEcom.readLine());
-
-			//sending encrypted purchase information to ECOM1
-			outEcom.println(inClient.readLine());
-
-			//forwarding str_pid_Toamnt to Client
-			outClient.println(inEcom.readLine());
-
-			//reading orderid+ total payable amount sent from Client
-			str_pid_Toamnt = bc_session.decrypt(inClient.readLine());
-
-			//Broker should store this purchase information in a file here
-			pid_Toamnt = str_pid_Toamnt.split("\\|");
-
-			pID = Integer.parseInt(pid_Toamnt[0]);
-			//////////////////////////////////////////////////////////////////////////////////
-			pid = pid_Toamnt[0];
-			total_amnt = Integer.parseInt(pid_Toamnt[1]);
-			//////////////////////////////////////////////////////////////////////////////////
-			amt = pid_Toamnt[1];
-			System.out.println("So, the purchase ID and total amount is: "+ pID+" and "+ total_amnt);
-
-			// perform money transaction from client buckt to ECom1 bucket
-
-			clientBucket -= total_amnt;
-			ecom1Bucket += total_amnt;
-
-
-			//sending client and ECOM1 notification about the money transaction
-			receiptc = "[Transaction Confirmation Receipt]"+"|"+Integer.toString(pID)+"|"+Integer.toString(total_amnt)+"|"+Integer.toString(clientBucket);
-			receipte = "[Transaction Confirmation Receipt]"+"|"+Integer.toString(pID)+"|"+Integer.toString(total_amnt)+"|"+Integer.toString(ecom1Bucket);
-
-			//  System.out.println("sending the following message to Client:\n"+receipt);
-			outClient.println(bc_session.encrypt(receiptc));
-			outEcom.println(be_session.encrypt(receipte));
-
-
-			//******************************************************************************	
-			//reading file that broker wrote on my io stream
-
-			// receive file
-			mybytearray  = new byte [100000];
-			is = conn_ecom.getInputStream();
-			//   	     fos = new FileOutputStream("broker_to_ecom");
-			//  	      bos = new BufferedOutputStream(fos);
-			bytesRead = is.read(mybytearray,0,mybytearray.length);
-			//	      current = bytesRead;
-			/*
-    	      do {
-    	         bytesRead = is.read(mybytearray, current, (mybytearray.length-current));
-    	         if(bytesRead >= 0) current += bytesRead;
-    	      } while(bytesRead > -1);
-    	      //System.out.println( mybytearray+"................'"+current+"..."+mybytearray.length);
-			 */ 	      
-			//  bos.write(mybytearray, 0 , mybytearray.length);
-			// bos.flush();
-			// System.out.println("File " + "ecom_to_broker"
-			//   + " downloaded (" + current + " bytes read)");
-
-
-			//writing product on client socket
-			os_c.write(mybytearray,0,mybytearray.length);
-			os_c.flush();
-			System.out.println("product sent to client");
-			//*****************************************************************************
-
+			work();
 			break;
+			
 		case 3:
 			System.out.println("Broker connecting to ECOM3");
 			sessionWithEcom(EOM3_IP, ECOM3_PORT);
-			outClient.println(inEcom.readLine());
-
-			//sending encrypted purchase information to ECOM1
-			outEcom.println(inClient.readLine());
-
-			//forwarding str_pid_Toamnt to Client
-			outClient.println(inEcom.readLine());
-
-			//reading orderid+ total payable amount sent from Client
-			str_pid_Toamnt = bc_session.decrypt(inClient.readLine());
-
-			//Broker should store this purchase information in a file here
-			pid_Toamnt = str_pid_Toamnt.split("\\|");
-
-			pID = Integer.parseInt(pid_Toamnt[0]);
-
-			pid = pid_Toamnt[0];
-			total_amnt = Integer.parseInt(pid_Toamnt[1]);
-
-			amt = pid_Toamnt[1];
-			System.out.println("So, the purchase ID and total amount is: "+ pID+" and "+ total_amnt);
-
-			// perform money transaction from client bucket to ECom1 bucket
-
-			clientBucket -= total_amnt;
-			ecom1Bucket += total_amnt;
-
-
-			//sending client and ECOM1 notification about the money transaction
-			receiptc = "[Transaction Confirmation Receipt]"+"|"+Integer.toString(pID)+"|"+Integer.toString(total_amnt)+"|"+Integer.toString(clientBucket);
-			receipte = "[Transaction Confirmation Receipt]"+"|"+Integer.toString(pID)+"|"+Integer.toString(total_amnt)+"|"+Integer.toString(ecom1Bucket);
-
-			//  System.out.println("sending the following message to Client:\n"+receipt);
-			outClient.println(bc_session.encrypt(receiptc));
-			outEcom.println(be_session.encrypt(receipte));
-
-			//******************************************************************************	
-			//reading file that broker wrote on my io stream
-
-			// receive file
-			mybytearray  = new byte [100000];
-			is = conn_ecom.getInputStream();
-			//  fos = new FileOutputStream("broker_to_ecom");
-			//   bos = new BufferedOutputStream(fos);
-			bytesRead = is.read(mybytearray,0,mybytearray.length);
-			System.out.println("bytes read on broker : "+bytesRead);
-			// 	      current = bytesRead;
-			/*
-    	      do {
-    	         bytesRead = is.read(mybytearray, current, (mybytearray.length-current));
-    	         if(bytesRead >= 0) current += bytesRead;
-    	      } while(bytesRead > -1);
-    	      //System.out.println( mybytearray+"................'"+current+"..."+mybytearray.length);
-			 */ 	      
-			// bos.write(mybytearray, 0 , mybytearray.length);
-			// bos.flush();
-			// System.out.println("File " + "ecom_to_broker"
-			//    + " downloaded (" + current + " bytes read)");
-
-
-			//writing product on client socket
-			os_c.write(mybytearray,0,mybytearray.length);
-			os_c.flush();
-			System.out.println("product sent to client");
-			//*****************************************************************************
-
+			work();
 			break;
+			
 		default:
 			System.out.println("I don't think it will ever come here");
 			break;
