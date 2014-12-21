@@ -1,0 +1,14 @@
+#!/bin/bash
+javac *.java
+echo "***************All java files compiled***************"
+
+echo "Now Running all Ecommerce servers"
+
+javac ECOM1 &
+javac ECOM2 &
+javac ECOM3 &
+
+echo "************************************************"
+echo "*********running all Ecommerce servers**********"
+echo "************************************************"
+

@@ -1,0 +1,189 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BCSessionID	Broker.java	/^    static String BCSessionID;$/;"	f	class:Broker
+BESessionID	Broker.java	/^    static String BESessionID;$/;"	f	class:Broker
+Broker	Broker.java	/^    public Broker() throws Exception {$/;"	m	class:Broker
+Broker	Broker.java	/^public class Broker {$/;"	c
+CBSessionID	Client.java	/^	static String CBSessionID, str;$/;"	f	class:Client
+Client	Client.java	/^	public Client() throws Exception {$/;"	m	class:Client
+Client	Client.java	/^public class Client {$/;"	c
+DESEncryption	DESEncryption.java	/^    public DESEncryption(String keyparam) throws Exception$/;"	m	class:DESEncryption
+DESEncryption	DESEncryption.java	/^public class DESEncryption {$/;"	c
+DES_ENCRYPTION_SCHEME	DESEncryption.java	/^    public static final String DES_ENCRYPTION_SCHEME = "DES";$/;"	f	class:DESEncryption
+E1BSessionID	ECOM1.java	/^    static String E1BSessionID;$/;"	f	class:ECOM1
+E2BSessionID	ECOM2.java	/^    static String E2BSessionID;$/;"	f	class:ECOM2
+E3BSessionID	ECOM3.java	/^    static String E3BSessionID;$/;"	f	class:ECOM3
+ECOM1	ECOM1.java	/^    public ECOM1() throws Exception {$/;"	m	class:ECOM1
+ECOM1	ECOM1.java	/^public class ECOM1 {$/;"	c
+ECOM2	ECOM2.java	/^    public ECOM2() throws Exception {$/;"	m	class:ECOM2
+ECOM2	ECOM2.java	/^public class ECOM2 {$/;"	c
+ECOM3	ECOM3.java	/^    public ECOM3() throws Exception {$/;"	m	class:ECOM3
+ECOM3	ECOM3.java	/^public class ECOM3 {$/;"	c
+Hash	Hash.java	/^    public Hash()  {$/;"	m	class:Hash
+Hash	Hash.java	/^public class Hash {$/;"	c
+IORes	Client.java	/^	public static void IORes() throws IOException {$/;"	m	class:Client
+SendToBroker	Client.java	/^	public static void SendToBroker(String msg) throws IOException {$/;"	m	class:Client
+SendToBroker	Client.java	/^	public static void SendToBroker(int msg) throws IOException {$/;"	m	class:Client
+UNICODE_FORMAT	DESEncryption.java	/^    private static final String UNICODE_FORMAT = "UTF8";$/;"	f	class:DESEncryption	file:
+Writer	Writer.java	/^    public Writer(String path)  {$/;"	m	class:Writer
+Writer	Writer.java	/^public class Writer {$/;"	c
+amt	Broker.java	/^    static String amt;$/;"	f	class:Broker
+amt_bal	Client.java	/^	static    String pid, amt_d,amt_bal;$/;"	f	class:Client
+amt_d	Client.java	/^	static    String pid, amt_d,amt_bal;$/;"	f	class:Client
+authFile	Broker.java	/^    static HashMap<String, String > authFile;$/;"	f	class:Broker
+bc_longterm	Broker.java	/^    static DESEncryption bc_longterm;$/;"	f	class:Broker
+bc_seed	Broker.java	/^    static long bc_seed = 13554269;$/;"	f	class:Broker
+bc_session	Broker.java	/^    static DESEncryption bc_session;$/;"	f	class:Broker
+be_longterm	Broker.java	/^    static DESEncryption be_longterm;$/;"	f	class:Broker
+be_seed	Broker.java	/^    static long be_seed = 12125637;$/;"	f	class:Broker
+be_session	Broker.java	/^    static DESEncryption be_session;$/;"	f	class:Broker
+bos	Broker.java	/^    static BufferedOutputStream bos;$/;"	f	class:Broker
+bos	Client.java	/^	static BufferedOutputStream bos;$/;"	f	class:Client
+bytes2String	DESEncryption.java	/^    private static String bytes2String(byte[] bytes) {$/;"	m	class:DESEncryption	file:
+bytesRead	Broker.java	/^    static int bytesRead;$/;"	f	class:Broker
+bytesRead	Client.java	/^	static int  bytesRead;$/;"	f	class:Client
+catalog	ECOM1.java	/^    static String catalog = "1)Movie1			$20|2)Movie2			$25|3)Movie3			$15";$/;"	f	class:ECOM1
+catalog	ECOM2.java	/^    static String catalog = "1)Music1			$20|2)Music2			$25|3)Music3			$15";$/;"	f	class:ECOM2
+catalog	ECOM3.java	/^    static String catalog = "1)Book1			$20|2)Book2			$25|3)Book3			$15";$/;"	f	class:ECOM3
+catalogE	Client.java	/^	static String catalogE;$/;"	f	class:Client
+cb_longterm	Client.java	/^	static DESEncryption cb_longterm;$/;"	f	class:Client
+cb_seed	Client.java	/^	static long cb_seed = 13554269;$/;"	f	class:Client
+cb_session	Client.java	/^	static DESEncryption cb_session;$/;"	f	class:Client
+ce1_longterm	Client.java	/^	static DESEncryption ce1_longterm;$/;"	f	class:Client
+ce1_seed	Client.java	/^	static long ce1_seed = 63521233;$/;"	f	class:Client
+ce2_longterm	Client.java	/^	static DESEncryption ce2_longterm;$/;"	f	class:Client
+ce2_seed	Client.java	/^	static long ce2_seed = 63521234;$/;"	f	class:Client
+ce3_longterm	Client.java	/^	static DESEncryption ce3_longterm;$/;"	f	class:Client
+ce3_seed	Client.java	/^	static long ce3_seed = 63521235;$/;"	f	class:Client
+cipher	DESEncryption.java	/^    private Cipher cipher;$/;"	f	class:DESEncryption	file:
+clientBucket	Broker.java	/^    static int clientBucket = 50000, ecom1Bucket = 500;$/;"	f	class:Broker
+client_id	Broker.java	/^    static String client_id, pid;$/;"	f	class:Broker
+clientid	Broker.java	/^    static int clientid;$/;"	f	class:Broker
+close	Writer.java	/^      public void close(){$/;"	m	class:Writer
+confirm	Client.java	/^	static String confirm;$/;"	f	class:Client
+conn_ecom	Broker.java	/^    static Socket conn_ecom;$/;"	f	class:Broker
+connectToBroker	Client.java	/^	public static void connectToBroker(int port) throws IOException {$/;"	m	class:Client
+count	Writer.java	/^    static int count;$/;"	f	class:Writer
+current	Broker.java	/^    static int current = 0;$/;"	f	class:Broker
+current	Client.java	/^	static int current = 0;$/;"	f	class:Client
+decrypt	DESEncryption.java	/^    public String decrypt(String encryptedString) {$/;"	m	class:DESEncryption
+e1b_longterm	ECOM1.java	/^    static DESEncryption e1b_longterm;$/;"	f	class:ECOM1
+e1b_seed	ECOM1.java	/^    static long e1b_seed = 12125637;$/;"	f	class:ECOM1
+e1b_session	ECOM1.java	/^    static DESEncryption e1b_session;$/;"	f	class:ECOM1
+e1c_longterm	ECOM1.java	/^    static DESEncryption e1c_longterm;$/;"	f	class:ECOM1
+e1c_seed	ECOM1.java	/^    static long e1c_seed = 63521233;$/;"	f	class:ECOM1
+e2b_longterm	ECOM2.java	/^    static DESEncryption e2b_longterm;$/;"	f	class:ECOM2
+e2b_seed	ECOM2.java	/^    static long e2b_seed = 12125637;$/;"	f	class:ECOM2
+e2b_session	ECOM2.java	/^    static DESEncryption e2b_session;$/;"	f	class:ECOM2
+e2c_longterm	ECOM2.java	/^    static DESEncryption e2c_longterm;$/;"	f	class:ECOM2
+e2c_seed	ECOM2.java	/^    static long e2c_seed = 63521234;$/;"	f	class:ECOM2
+e3b_longterm	ECOM3.java	/^    static DESEncryption e3b_longterm;$/;"	f	class:ECOM3
+e3b_seed	ECOM3.java	/^    static long e3b_seed = 12125637;$/;"	f	class:ECOM3
+e3b_session	ECOM3.java	/^    static DESEncryption e3b_session;$/;"	f	class:ECOM3
+e3c_longterm	ECOM3.java	/^    static DESEncryption e3c_longterm;$/;"	f	class:ECOM3
+e3c_seed	ECOM3.java	/^    static long e3c_seed = 63521235;$/;"	f	class:ECOM3
+ecom1Bucket	Broker.java	/^    static int clientBucket = 50000, ecom1Bucket = 500;$/;"	f	class:Broker
+encrypt	DESEncryption.java	/^    public String encrypt(String unencryptedString) {$/;"	m	class:DESEncryption
+estKeys	Broker.java	/^    public static void estKeys() throws Exception {$/;"	m	class:Broker
+estKeys	ECOM1.java	/^    public void estKeys() throws Exception {$/;"	m	class:ECOM1
+estKeys	ECOM2.java	/^    public void estKeys() throws Exception {$/;"	m	class:ECOM2
+estKeys	ECOM3.java	/^    public void estKeys() throws Exception {$/;"	m	class:ECOM3
+estkeys	Client.java	/^	public static  void estkeys() throws Exception {$/;"	m	class:Client
+file	Writer.java	/^     static File file;$/;"	f	class:Writer
+fileExists	Writer.java	/^    static boolean fileExists = true;$/;"	f	class:Writer
+flag	Client.java	/^	static boolean flag=false;$/;"	f	class:Client
+flag3	Client.java	/^	static boolean flag3;$/;"	f	class:Client
+flag5	Client.java	/^	static boolean flag5 = false;$/;"	f	class:Client
+fos	Broker.java	/^    static FileOutputStream fos;$/;"	f	class:Broker
+fos	Client.java	/^	static FileOutputStream fos;$/;"	f	class:Client
+getHash	Hash.java	/^    public String getHash(String value) $/;"	m	class:Hash
+i	Client.java	/^	static int i, j , k;$/;"	f	class:Client
+inBroker	ECOM1.java	/^    static BufferedReader inBroker;$/;"	f	class:ECOM1
+inBroker	ECOM2.java	/^    static BufferedReader inBroker;$/;"	f	class:ECOM2
+inBroker	ECOM3.java	/^    static BufferedReader inBroker;$/;"	f	class:ECOM3
+inClient	Broker.java	/^    static BufferedReader inClient;$/;"	f	class:Broker
+inEcom	Broker.java	/^    static BufferedReader inEcom;$/;"	f	class:Broker
+in_terminal	Broker.java	/^    static BufferedReader in_terminal;$/;"	f	class:Broker
+inputFromBroker	Client.java	/^	static BufferedReader inputFromBroker;$/;"	f	class:Client
+is	Broker.java	/^    static InputStream is;$/;"	f	class:Broker
+is	Client.java	/^	static InputStream is;$/;"	f	class:Client
+isLogged	Client.java	/^	private static boolean isLogged(String uname,String passhash) throws IOException {$/;"	m	class:Client	file:
+is_c	Broker.java	/^    static InputStream is_c;$/;"	f	class:Broker
+j	Client.java	/^	static int i, j , k;$/;"	f	class:Client
+k	Client.java	/^	static int i, j , k;$/;"	f	class:Client
+key	DESEncryption.java	/^    SecretKey key;$/;"	f	class:DESEncryption
+keyAsBytes	DESEncryption.java	/^    byte[] keyAsBytes;$/;"	f	class:DESEncryption
+listener	ECOM1.java	/^    static ServerSocket listener;$/;"	f	class:ECOM1
+listener	ECOM2.java	/^    static ServerSocket listener;$/;"	f	class:ECOM2
+listener	ECOM3.java	/^    static ServerSocket listener;$/;"	f	class:ECOM3
+main	Broker.java	/^    public static void main(String[] args) throws IOException, InterruptedException, Exception$/;"	m	class:Broker
+main	Client.java	/^	public static void main(String[] args) throws IOException, InterruptedException, NoSuchAlgorithmException, NoSuchPaddingException, Exception {$/;"	m	class:Client
+main	ECOM1.java	/^    public static void main(String[] args) throws IOException, Exception {$/;"	m	class:ECOM1
+main	ECOM2.java	/^    public static void main(String[] args) throws IOException, Exception {$/;"	m	class:ECOM2
+main	ECOM3.java	/^    public static void main(String[] args) throws IOException, Exception {$/;"	m	class:ECOM3
+md_Instance	Hash.java	/^    static MessageDigest md_Instance;$/;"	f	class:Hash
+myEncryptionKey	DESEncryption.java	/^    private String myEncryptionKey;$/;"	f	class:DESEncryption	file:
+myEncryptionScheme	DESEncryption.java	/^    private String myEncryptionScheme;$/;"	f	class:DESEncryption	file:
+myKeySpec	DESEncryption.java	/^    private KeySpec myKeySpec;$/;"	f	class:DESEncryption	file:
+mySecretKeyFactory	DESEncryption.java	/^    private SecretKeyFactory mySecretKeyFactory;$/;"	f	class:DESEncryption	file:
+mybytearray	Broker.java	/^    static byte[] mybytearray;$/;"	f	class:Broker
+mybytearray	Client.java	/^	static byte[] mybytearray;$/;"	f	class:Client
+nextSessionId	Broker.java	/^    public static String nextSessionId() {$/;"	m	class:Broker
+nextSessionId	Client.java	/^	public static String nextSessionId() {$/;"	m	class:Client
+nextSessionId	ECOM1.java	/^    public static String nextSessionId() {$/;"	m	class:ECOM1
+nextSessionId	ECOM2.java	/^    public static String nextSessionId() {$/;"	m	class:ECOM2
+nextSessionId	ECOM3.java	/^    public static String nextSessionId() {$/;"	m	class:ECOM3
+os	Client.java	/^	static OutputStream os;$/;"	f	class:Client
+os	ECOM1.java	/^    static OutputStream os;$/;"	f	class:ECOM1
+os	ECOM2.java	/^    static OutputStream os;$/;"	f	class:ECOM2
+os	ECOM3.java	/^    static OutputStream os;$/;"	f	class:ECOM3
+os_c	Broker.java	/^    static OutputStream os_c;$/;"	f	class:Broker
+outBroker	ECOM1.java	/^    static PrintWriter outBroker;$/;"	f	class:ECOM1
+outBroker	ECOM2.java	/^    static PrintWriter outBroker;$/;"	f	class:ECOM2
+outBroker	ECOM3.java	/^    static PrintWriter outBroker;$/;"	f	class:ECOM3
+outClient	Broker.java	/^    static PrintWriter outClient;$/;"	f	class:Broker
+outEcom	Broker.java	/^    static PrintWriter outEcom;$/;"	f	class:Broker
+outToBroker	Client.java	/^	static PrintWriter outToBroker;$/;"	f	class:Client
+p	Broker.java	/^    static String u,p ;$/;"	f	class:Broker
+pID	Broker.java	/^    static int pID;$/;"	f	class:Broker
+pID	Client.java	/^	static int pID;$/;"	f	class:Client
+pid	Broker.java	/^    static String client_id, pid;$/;"	f	class:Broker
+pid	Client.java	/^	static    String pid, amt_d,amt_bal;$/;"	f	class:Client
+pid_Toamnt	Broker.java	/^    static String[] pid_Toamnt;$/;"	f	class:Broker
+pid_Toamnt	Client.java	/^	static String[] pid_Toamnt;$/;"	f	class:Client
+pointer	Writer.java	/^     static int pointer;$/;"	f	class:Writer
+products	Client.java	/^	static String[] products;$/;"	f	class:Client
+random	Broker.java	/^    static SecureRandom random;$/;"	f	class:Broker
+random	Client.java	/^	private static SecureRandom random;$/;"	f	class:Client	file:
+random	ECOM1.java	/^    static SecureRandom random;$/;"	f	class:ECOM1
+random	ECOM2.java	/^    static SecureRandom random;$/;"	f	class:ECOM2
+random	ECOM3.java	/^    static SecureRandom random;$/;"	f	class:ECOM3
+receipt	Client.java	/^	static String[] receipt;$/;"	f	class:Client
+receiptc	Broker.java	/^    static String receiptc;$/;"	f	class:Broker
+receipte	Broker.java	/^    static String receipte;$/;"	f	class:Broker
+recieveFromBroker	Client.java	/^	public static String recieveFromBroker() throws IOException {$/;"	m	class:Client
+recieveIntFromBroker	Client.java	/^	public static int recieveIntFromBroker() throws IOException {$/;"	m	class:Client
+s	Broker.java	/^    static Socket s;$/;"	f	class:Broker
+s	Client.java	/^	static Socket s;$/;"	f	class:Client
+sc	Client.java	/^	static Scanner sc;$/;"	f	class:Client
+serverSock	Broker.java	/^    static ServerSocket serverSock;$/;"	f	class:Broker
+sessionWithEcom	Broker.java	/^    public static void sessionWithEcom(String ecomIP, int ecom_port) throws IOException$/;"	m	class:Broker
+signUp	Broker.java	/^    public  void signUp(){$/;"	m	class:Broker
+signUp	Client.java	/^	public static  int signUp(String userpass){$/;"	m	class:Client
+socket	ECOM1.java	/^    static Socket socket;$/;"	f	class:ECOM1
+socket	ECOM2.java	/^    static Socket socket;$/;"	f	class:ECOM2
+socket	ECOM3.java	/^    static Socket socket;$/;"	f	class:ECOM3
+str	Client.java	/^	static String CBSessionID, str;$/;"	f	class:Client
+str_pid_Toamnt	Broker.java	/^    static String str_pid_Toamnt;$/;"	f	class:Broker
+str_pid_Toamnt	Client.java	/^	static String str_pid_Toamnt;$/;"	f	class:Client
+total_amnt	Broker.java	/^    static int total_amnt;$/;"	f	class:Broker
+total_amnt	Client.java	/^	static int total_amnt ;$/;"	f	class:Client
+u	Broker.java	/^    static String u,p ;$/;"	f	class:Broker
+valid	Client.java	/^	static boolean valid=false;$/;"	f	class:Client
+which_ecom	Broker.java	/^    int which_ecom()$/;"	m	class:Broker
+write	Writer.java	/^      public  void write(String msg, DESEncryption encr) throws IOException{$/;"	m	class:Writer
+writer	Writer.java	/^    static BufferedWriter writer;$/;"	f	class:Writer
